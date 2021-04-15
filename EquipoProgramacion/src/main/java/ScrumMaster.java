@@ -24,6 +24,16 @@ public final class ScrumMaster extends Employee{
         System.out.println("Scrum master peretence a estos grupos " + teams);
     }
 
+    public boolean leaveTeam( String newTeam){
+        boolean isOnTeam = false;
+        for (String team: teams){
+            if (team.equals(newTeam)){
+                isOnTeam= true;
+            }
+        }
+        return isOnTeam;
+    }
+
 
     public HashSet<String> getTeams() {
         return teams;

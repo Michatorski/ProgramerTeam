@@ -12,6 +12,30 @@ public final class ProjectManager extends Employee{
         this.projects = projects;
     }
 
+
+    @Override
+    public void showBasicInfo() {
+        System.out.println("Numero ID es " + getId());
+        System.out.println(" Nombre completo "+ getFullName() );
+        System.out.println(" Numero de horas trabajadas" + getNumHoursWorked() );
+
+    }
+
+    public void makeProject (String newProject){
+        this.teams.add(newProject);
+        System.out.println("Jefe de Projecto a creado a nuevo projecto " + projects);
+    }
+
+    public boolean leaveTeam( String newProject){
+        boolean isOnTeam = false;
+        for (String project: projects){
+            if (project.equals(newProject)){
+                isOnTeam= true;
+            }
+        }
+        return isOnTeam;
+    }
+
     public HashSet<String> getTeams() {
         return teams;
     }
@@ -28,13 +52,6 @@ public final class ProjectManager extends Employee{
         this.projects = projects;
     }
 
-    @Override
-    public void showBasicInfo() {
-        System.out.println("Numero ID es " + getId());
-        System.out.println(" Nombre completo "+ getFullName() );
-        System.out.println(" Numero de horas trabajadas" + getNumHoursWorked() );
-
-    }
 
     @Override
     public boolean equals(Object o) {
