@@ -28,6 +28,13 @@ public final class Programer extends Employee {
     }
 
     @Override
+    public void showBasicInfo() {
+        System.out.println("Numero ID es " + getId());
+        System.out.println(" Nombre completo "+ getFullName() );
+       System.out.println(" Numero de horas trabajadas" + getNumHoursWorked() );
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;

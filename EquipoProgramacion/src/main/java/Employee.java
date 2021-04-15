@@ -12,15 +12,12 @@ public abstract class Employee {
         this.numHoursWorked = numHoursWorked;
     }
 
-    public int logWorkHours(int addHours){
-        return this.numHoursWorked = numHoursWorked + addHours;
+    public void  logWorkHours(int addHours){
+
+         numHoursWorked = numHoursWorked + addHours;
+        System.out.println("Numeros de horas trabajadas "+ numHoursWorked);
     }
 
-//    protected final void showBasicInfo(){
-//        System.out.println("Numero ID es " + id);
-//        System.out.println(" Nombre completo "+ fullName );
-//        System.out.println(" Numero de horas trabajadas" + numHoursWorked );
-//    }
 
  public abstract void showBasicInfo();
 

@@ -12,6 +12,18 @@ public final class ScrumMaster extends Employee{
         this.teams = teams;
     }
 
+    @Override
+    public void showBasicInfo() {
+        System.out.println("Numero ID es " + getId());
+      System.out.println(" Nombre completo "+ getFullName() );
+       System.out.println(" Numero de horas trabajadas" + getNumHoursWorked());
+    }
+
+    public void joinTeam(String newTeam){
+         this.teams.add(newTeam);
+        System.out.println("Scrum master peretence a estos grupos " + teams);
+    }
+
 
     public HashSet<String> getTeams() {
         return teams;
@@ -19,13 +31,6 @@ public final class ScrumMaster extends Employee{
 
     public void setTeams(HashSet<String> teams) {
         this.teams = teams;
-    }
-
-    @Override
-    public void showBasicInfo() {
-        System.out.println("Numero ID es " + getId());
-      System.out.println(" Nombre completo "+ getFullName() );
-       System.out.println(" Numero de horas trabajadas" + getNumHoursWorked())
     }
 
     @Override
