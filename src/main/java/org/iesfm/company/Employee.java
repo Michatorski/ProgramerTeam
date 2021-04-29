@@ -1,3 +1,4 @@
+package org.iesfm.company;
 
 import java.util.Objects;
 
@@ -18,8 +19,16 @@ public abstract class Employee {
         System.out.println("Numeros de horas trabajadas "+ numHoursWorked);
     }
 
+    public abstract void showBasicInfo();
 
- public abstract void showBasicInfo();
+    protected abstract void showSpecificInfo();
+
+ public void showInfo(){
+     System.out.println("Numero ID es " + id);
+     System.out.println(" Nombre completo "+ fullName);
+     System.out.println(" Numero de horas trabajadas" + numHoursWorked );
+     showSpecificInfo();
+ }
 
     public int getId() {
         return id;

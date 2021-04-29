@@ -1,3 +1,4 @@
+package org.iesfm.company;
 
 import java.util.HashSet;
 import java.util.Objects;
@@ -14,24 +15,21 @@ public final class ScrumMaster extends Employee{
 
     @Override
     public void showBasicInfo() {
-        System.out.println("Numero ID es " + getId());
-      System.out.println(" Nombre completo "+ getFullName() );
-       System.out.println(" Numero de horas trabajadas" + getNumHoursWorked());
+
+    }
+
+    @Override
+    protected void showSpecificInfo() {
+
     }
 
     public void joinTeam(String newTeam){
-         this.teams.add(newTeam);
-        System.out.println("Scrum master peretence a estos grupos " + teams);
-    }
+         teams.add(newTeam);
+          }
 
     public boolean leaveTeam( String newTeam){
-        boolean isOnTeam = false;
-        for (String team: teams){
-            if (team.equals(newTeam)){
-                isOnTeam= true;
-            }
-        }
-        return isOnTeam;
+
+        return teams.remove(newTeam);
     }
 
 
@@ -42,6 +40,8 @@ public final class ScrumMaster extends Employee{
     public void setTeams(HashSet<String> teams) {
         this.teams = teams;
     }
+
+
 
     @Override
     public boolean equals(Object o) {

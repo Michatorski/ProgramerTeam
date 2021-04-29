@@ -3,27 +3,33 @@ import java.util.Objects;
 
 
 public final class ProjectManager extends Employee{
-    private HashSet<String> teams;
+    private String team;
     private HashSet<String> projects;
 
-    public ProjectManager(int id, String fullName, int numHoursWorked, HashSet<String> teams, HashSet<String> projects) {
+    public ProjectManager(int id, String fullName, int numHoursWorked, String team, HashSet<String> projects) {
         super(id, fullName, numHoursWorked);
-        this.teams = teams;
+        this.team = team;
         this.projects = projects;
     }
 
 
     @Override
-    public void showBasicInfo() {
-        System.out.println("Numero ID es " + getId());
-        System.out.println(" Nombre completo "+ getFullName() );
-        System.out.println(" Numero de horas trabajadas" + getNumHoursWorked() );
+    protected void showSpecificInfo() {
 
     }
 
-    public void makeProject (String newProject){
-        this.teams.add(newProject);
-        System.out.println("Jefe de Projecto a creado a nuevo projecto " + projects);
+    public boolean makeProject (String newProject){
+//      ---OTRA OPCION:
+//       boolean existProject = getProjects().contains(newProject);
+//
+//       if(!existProject){
+//           projects.add(newProject);
+//           System.out.println("Jefe de Projecto a creado a nuevo projecto " + projects);
+//       }
+//
+//        return !existProject;
+
+        return projects.add(newProject);
     }
 
     public boolean leaveTeam( String newProject){
@@ -36,12 +42,12 @@ public final class ProjectManager extends Employee{
         return isOnTeam;
     }
 
-    public HashSet<String> getTeams() {
-        return teams;
+    public String  getTeam() {
+        return team;
     }
 
-    public void setTeams(HashSet<String> teams) {
-        this.teams = teams;
+    public void setTeam(String team) {
+        this.team = team;
     }
 
     public HashSet<String> getProjects() {
@@ -52,19 +58,18 @@ public final class ProjectManager extends Employee{
         this.projects = projects;
     }
 
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
         ProjectManager that = (ProjectManager) o;
-        return Objects.equals(teams, that.teams) &&
+        return Objects.equals(team, that.team) &&
                 Objects.equals(projects, that.projects);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), teams, projects);
+        return Objects.hash(super.hashCode(), team, projects);
     }
 }

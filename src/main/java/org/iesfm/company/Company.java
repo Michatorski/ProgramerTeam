@@ -1,3 +1,5 @@
+package org.iesfm.company;
+
 import java.util.*;
 
 public class Company extends Employee{
@@ -90,6 +92,11 @@ public class Company extends Employee{
     @Override
     public void showBasicInfo() {
 
+
+    }
+
+    @Override
+    protected void showSpecificInfo() {
 
     }
 
